@@ -23,8 +23,11 @@ jobs:
         go version
         go list -m
 
+    - run: go mod tidy && git diff --exit-code go.mod go.sum
+    - run: go vet ./...
+
     - name: Build
       run: make build
 
     - name: Test
-      run: make units
+      run: go run ./ginkgo -r --randomizeAllSpecs --randomizeSuites --race --trace
