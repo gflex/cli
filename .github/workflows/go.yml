@@ -37,5 +37,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-go-
       
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
+      
     - name: Test
       run: go run bin/ginkgo -r --randomizeAllSpecs --randomizeSuites --race --trace
