@@ -20,6 +20,7 @@ jobs:
 
     - run: go version
     - run: go mod tidy && git diff --exit-code go.mod go.sum
+    - run: go get -u github.com/onsi/ginkgo/ginkgo
 
     - uses: actions/cache@v2
       with:
@@ -37,8 +38,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-go-
       
-    - name: Setup upterm session
-      uses: lhotari/action-upterm@v1
+#     - name: Setup upterm session
+#       uses: lhotari/action-upterm@v1
       
     - name: Test
-      run: go run bin/ginkgo -r --randomizeAllSpecs --randomizeSuites --race --trace
+      run: go run ginkgo -r --randomizeAllSpecs --randomizeSuites --race --trace
