@@ -41,5 +41,5 @@ jobs:
 #     - name: Setup upterm session
 #       uses: lhotari/action-upterm@v1
       
-    - name: Test
-      run: make units
+    - name: Unit Tests
+      run: ginkgo -r -randomizeAllSpecs -requireSuite  -randomizeSuites -p -skipPackage integration,cf/ssh,plugin,cf/actors/plugin,cf/commands/plugin,cf/actors/plugin,util/randomword
