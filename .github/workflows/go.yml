@@ -38,4 +38,4 @@ jobs:
           ${{ runner.os }}-go-
       
     - name: Test
-      run: go run ginkgo -r --randomizeAllSpecs --randomizeSuites --race --trace
+      run: go run bin/ginkgo -r --randomizeAllSpecs --randomizeSuites --race --trace
