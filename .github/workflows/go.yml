@@ -21,6 +21,7 @@ jobs:
     - run: go version
     - run: go mod tidy && git diff --exit-code go.mod go.sum
     - run: go get -u github.com/onsi/ginkgo/ginkgo
+    - run: go get github.com/onsi/gomega/matchers@v1.10.5
 
     - uses: actions/cache@v2
       with:
