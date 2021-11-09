@@ -23,4 +23,4 @@ jobs:
 #     - name: Setup upterm session
 #       uses: lhotari/action-upterm@v1
       
-    - run: GOARCH=386 GOOS=windows go build -tags="forceposix" -o out/cf-cli_win32.exe -ldflags "$(LD_FLAGS)" .
+    - run: GOARCH=386 GOOS=windows go build -tags="forceposix" -o out/cf-cli_win32.exe -ldflags "-w -s	-X code.cloudfoundry.org/cli/version.binarySHA=123 -X code.cloudfoundry.org/cli/version.binaryBuildDate=1-1-1901 -X code.cloudfoundry.org/cli/version.binaryVersion=999" .
