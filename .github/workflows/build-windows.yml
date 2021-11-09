@@ -18,9 +18,8 @@ jobs:
 
     - run: go version
     
-    - name: Setup Deps
-      run: go mod tidy && git diff --exit-code go.mod go.sum
-      run: go get -u github.com/onsi/ginkgo/ginkgo
+    - run: go mod tidy && git diff --exit-code go.mod go.sum
+    - run: go get -u github.com/onsi/ginkgo/ginkgo
 
 #     - name: Setup upterm session
 #       uses: lhotari/action-upterm@v1
