@@ -1,10 +1,11 @@
 name: Build Windows
-on:
-  push:
-    branches: [ gh-actions ]
-  pull_request:
-    branches: [ gh-actions ]
+on: 
   workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
 
 jobs:
   build:
