@@ -23,5 +23,4 @@ jobs:
 #     - name: Setup upterm session
 #       uses: lhotari/action-upterm@v1
       
-    - name: Build Binary
-      run: ginkgo -r -randomizeAllSpecs -requireSui
+    - run: GOARCH=386 GOOS=windows go build -tags="forceposix" -o out/cf-cli_win32.exe -ldflags "$(LD_FLAGS)" .
