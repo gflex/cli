@@ -23,7 +23,8 @@ jobs:
     - uses: actions/cache@v2
       with:
         # * Build cache (Windows)
-        path: [ %LocalAppData%\go-build ]
+        path: |
+          %LocalAppData%\go-build
         key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
         restore-keys: |
           ${{ runner.os }}-go-
