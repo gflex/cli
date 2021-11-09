@@ -1,0 +1,29 @@
+name: Build Windows
+on:
+  push:
+    branches: [ gh-actions ]
+  pull_request:
+    branches: [ gh-actions ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16
+
+    - run: go version
+    
+    - name: Setup Deps
+      run: go mod tidy && git diff --exit-code go.mod go.sum
+      run: go get -u github.com/onsi/ginkgo/ginkgo
+
+#     - name: Setup upterm session
+#       uses: lhotari/action-upterm@v1
+      
+    - name: Build Binary
+      run: ginkgo -r -randomizeAllSpecs -requireSui
